@@ -29,11 +29,11 @@ module.exports = {
         library: { type: "module" },
 
         // For remotes (please adjust)
-        // name: "shopFolderLogin",
-        // filename: "remoteEntry.js",
-        // exposes: {
-        //     './Component': './/src/app/app.component.ts',
-        // },        
+        name: "shopFolderLogin",
+        filename: "remoteEntry.js",
+        exposes: {
+            './LoginComponent': './/src/app/app.component.ts',
+        },        
         
         // For hosts (please adjust)
         // remotes: {
@@ -46,6 +46,8 @@ module.exports = {
           "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
           "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
           "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+          "shop-folder-logger": {singleton: true, strictVersion: true, requiredVersion: 'auto'},
+          "shop-folder-component": {singleton: true, strictVersion: true, requiredVersion: 'auto'},
 
           ...sharedMappings.getDescriptors()
         })
