@@ -1,7 +1,7 @@
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const mf = require("@angular-architects/module-federation/webpack");
 const path = require("path");
-const share = mf.share;
+const shareAll = mf.shareAll;
 
 const sharedMappings = new mf.SharedMappings();
 sharedMappings.register(
@@ -32,7 +32,7 @@ module.exports = {
         name: "shopFolderLogin",
         filename: "remoteEntry.js",
         exposes: {
-            './LoginComponent': './/src/app/app.component.ts',
+            './routes': './/src/app/app.routes.ts',
         },        
         
         // For hosts (please adjust)
@@ -41,16 +41,7 @@ module.exports = {
 
         // },
 
-        shared: share({
-          "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
-          "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
-          "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
-          "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-          "shop-folder-logger": {singleton: true, strictVersion: true, requiredVersion: 'auto'},
-          "shop-folder-component": {singleton: true, strictVersion: true, requiredVersion: 'auto'},
-
-          ...sharedMappings.getDescriptors()
-        })
+        shared: {...shareAll({ singleton: true, strictVersion: true, requiredVersion: "auto" })}
         
     }),
     sharedMappings.getPlugin()
