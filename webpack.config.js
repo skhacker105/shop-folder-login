@@ -15,7 +15,7 @@ module.exports = {
   },
   optimization: {
     runtimeChunk: false
-  },   
+  },
   resolve: {
     alias: {
       ...sharedMappings.getAliases(),
@@ -26,23 +26,23 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-        library: { type: "module" },
+      library: { type: "module" },
 
-        // For remotes (please adjust)
-        name: "shopFolderLogin",
-        filename: "remoteEntry.js",
-        exposes: {
-            './routes': './/src/app/app.routes.ts',
-        },        
-        
-        // For hosts (please adjust)
-        // remotes: {
-        //     "mfe1": "http://localhost:3000/remoteEntry.js",
+      // For remotes (please adjust)
+      name: "shopFolderLogin",
+      filename: "remoteEntry.js",
+      exposes: {
+        './routes': './/src/app/app.routes.ts',
+      },
 
-        // },
+      // For hosts (please adjust)
+      // remotes: {
+      //     "mfe1": "http://localhost:3000/remoteEntry.js",
 
-        shared: {...shareAll({ singleton: true, strictVersion: true, requiredVersion: "auto" })}
-        
+      // },
+
+      shared: { ...shareAll({ singleton: true, strictVersion: true, requiredVersion: "auto" }) }
+
     }),
     sharedMappings.getPlugin()
   ],
