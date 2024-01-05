@@ -32,7 +32,7 @@ module.exports = {
       name: "shopFolderLogin",
       filename: "remoteEntry.js",
       exposes: {
-        './routes': './/src/app/app.routes.ts',
+        './routes': './/src/app/app.routes.ts'
       },
 
       // For hosts (please adjust)
@@ -41,7 +41,7 @@ module.exports = {
 
       // },
 
-      shared: { ...shareAll({ singleton: true, strictVersion: true, requiredVersion: "auto" }) }
+      shared: { ...shareAll({ singleton: true, strictVersion: true, requiredVersion: "auto" }), 'src/assets/': { eager: true, singleton: true } }
 
     }),
     sharedMappings.getPlugin()
