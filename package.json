@@ -25,8 +25,8 @@
     "ag-grid-angular": "^31.0.1",
     "ag-grid-community": "^31.0.1",
     "rxjs": "~7.8.0",
-    "shop-folder-component": "^0.0.207",
-    "shop-folder-core": "^0.0.8",
+    "shop-folder-component": "^0.0.211",
+    "shop-folder-core": "^0.0.19",
     "shop-folder-logger": "^0.0.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"
